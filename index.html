@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl Patrick K.O.</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8f9fa;
+            padding: 30px 15px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 45px 40px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            border: 5px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .name {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-section {
+            margin-top: 35px;
+        }
+
+        .section-heading {
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #3b82f6;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.9em;
+            color: #cbd5e1;
+        }
+
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .skills-sidebar {
+            margin-top: 35px;
+        }
+
+        .skill-item {
+            margin-bottom: 18px;
+        }
+
+        .skill-name {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .main-content {
+            padding: 45px 50px;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .summary-text {
+            color: #334155;
+            font-size: 0.98em;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .content-section-title::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+
+        .experience-card {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 30px;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px #e0e7ff;
+        }
+
+        .job-header {
+            margin-bottom: 12px;
+        }
+
+        .job-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .company-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+        }
+
+        .company-name {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .date-badge {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .job-description {
+            color: #475569;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .achievements-list {
+            list-style: none;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            color: #475569;
+            font-size: 0.93em;
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1.5px solid #e2e8f0;
+            color: #1e293b;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.88em;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .project-tech {
+            color: #3b82f6;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            color: #475569;
+            font-size: 0.92em;
+            line-height: 1.6;
+        }
+
+        .education-card {
+            background: #f8fafc;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .degree {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content, .sidebar {
+                padding: 30px 25px;
+            }
+            
+            .name {
+                font-size: 1.6em;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="avatar"><img src="section-man1.png" alt="CP"></div>
+                <h1 class="name">Carl Patrick K.O.</h1>
+                <p class="title">Full Stack Developer & Automation Engineer</p>
+            </div>
+
+            <div class="contact-section">
+                <h3 class="section-heading">Contact</h3>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <span>xdr.kaan.dev@gmail.com</span>
+                </div>
+            
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Castries, ST. Lucia</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span><a href="https://section-man.github.io/portforlio">section-man.github.io/portforlio</a>
+                    <style>a { color: var(--accent-primary); text-decoration: none; }</style>
+                    </span>
+                </div>
+                
+            </div>
+
+            <div class="skills-sidebar">
+                <h3 class="section-heading">Key Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript/TypeScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">React & React Native</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Node.js & Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Automation & Testing</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Cloud (AWS/Firebase)</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Mobile Development</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="summary-box">
+                <p class="summary-text">
+                    Versatile Full Stack Developer and Automation Engineer with proven expertise in delivering end-to-end solutions across mobile, web, and automation domains. Specialized in building scalable applications with modern frameworks and implementing intelligent automation systems that drive efficiency. Strong track record of transforming complex requirements into elegant, production-ready solutions with a focus on performance, user experience, and maintainability.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-section-title">Professional Experience</h2>
+                
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title">Senior Full Stack Developer</div>
+                        <div class="company-info">
+                            <span class="company-name">Company Name / Freelance</span>
+                            <span class="date-badge">Jan 2023 - Present</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Leading full-cycle development of enterprise applications, architecting scalable solutions, and mentoring development teams on best practices and emerging technologies.
+                    </p>
+                    <ul class="achievements-list">
+                        <li>Architected and delivered 15+ production applications serving 100K+ users across mobile and web platforms</li>
+                        <li>Optimized application performance achieving 40% faster load times and 60% reduction in API response time</li>
+                        <li>Implemented comprehensive testing strategies increasing code coverage from 45% to 85%</li>
+                        <li>Led cross-functional team collaborations across multiple time zones, ensuring timely project delivery</li>
+                        <li>Introduced modern development practices including CI/CD pipelines and automated deployment workflows</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title">Automation Engineer</div>
+                        <div class="company-info">
+                            <span class="company-name">Tech Company</span>
+                            <span class="date-badge">Mar 2021 - Dec 2022</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Designed and implemented automation frameworks and tools to streamline development workflows, enhance quality assurance processes, and improve operational efficiency.
+                    </p>
+                    <ul class="achievements-list">
+                        <li>Developed automated testing frameworks reducing manual QA effort by 60% and bug detection time by 45%</li>
+                        <li>Built data extraction and processing pipelines handling 10,000+ records daily with 99.9% accuracy</li>
+                        <li>Created CI/CD pipelines using Jenkins and GitHub Actions, reducing deployment time from 2 hours to 15 minutes</li>
+                        <li>Implemented monitoring and alerting systems improving incident response time by 70%</li>
+                        <li>Automated routine tasks saving the team 25+ hours weekly and reducing operational costs by 35%</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="job-header">
+                        <div class="job-title">Full Stack Developer</div>
+                        <div class="company-info">
+                            <span class="company-name">Startup Company</span>
+                            <span class="date-badge">Jun 2019 - Feb 2021</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Built and maintained full-stack applications from concept to deployment, collaborating with designers and stakeholders to deliver high-quality user experiences.
+                    </p>
+                    <ul class="achievements-list">
+                        <li>Developed responsive web applications using React, Node.js, and MongoDB serving 50K+ daily users</li>
+                        <li>Created RESTful APIs and integrated third-party services including payment gateways and analytics</li>
+                        <li>Collaborated with UI/UX team to implement pixel-perfect designs with smooth interactions</li>
+                        <li>Maintained 99.5% uptime through proactive monitoring and rapid issue resolution</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-section-title">Technical Arsenal</h2>
+                <div class="skills-grid">
+                    <div class="skill-badge">React</div>
+                    <div class="skill-badge">React Native</div>
+                    <div class="skill-badge">Node.js</div>
+                    <div class="skill-badge">TypeScript</div>
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">Flutter</div>
+                    <div class="skill-badge">Vue.js</div>
+                    <div class="skill-badge">Express.js</div>
+                    <div class="skill-badge">Django</div>
+                    <div class="skill-badge">MongoDB</div>
+                    <div class="skill-badge">PostgreSQL</div>
+                    <div class="skill-badge">MySQL</div>
+                    <div class="skill-badge">AWS</div>
+                    <div class="skill-badge">Firebase</div>
+                    <div class="skill-badge">Docker</div>
+                    <div class="skill-badge">Git</div>
+                    <div class="skill-badge">Selenium</div>
+                    <div class="skill-badge">Puppeteer</div>
+                    <div class="skill-badge">Jest</div>
+                    <div class="skill-badge">Cypress</div>
+                    <div class="skill-badge">CI/CD</div>
+                    <div class="skill-badge">REST APIs</div>
+                    <div class="skill-badge">GraphQL</div>
+                    <div class="skill-badge">Linux</div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">Multi-Vendor E-Commerce Platform</div>
+                        <div class="project-tech">React Native · Node.js · MongoDB · Stripe · Firebase</div>
+                        <p class="project-description">
+                            Comprehensive e-commerce solution with vendor management, real-time inventory tracking, secure payment processing, push notifications, and analytics dashboard. Supports iOS and Android with 50,000+ active users and processing $2M+ in annual transactions.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Enterprise Automation Suite</div>
+                        <div class="project-tech">Python · Selenium · AWS Lambda · PostgreSQL · Docker</div>
+                        <p class="project-description">
+                            End-to-end automation platform for data extraction, processing, and reporting across multiple systems. Reduced manual operations by 80%, eliminated data entry errors, and saved 120+ hours monthly while processing 50,000+ records daily with built-in error handling and retry mechanisms.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Real-Time Analytics Dashboard</div>
+                        <div class="project-tech">React · D3.js · Socket.io · Node.js · Redis · PostgreSQL</div>
+                        <p class="project-description">
+                            Interactive business intelligence platform with real-time data visualization, customizable widgets, role-based access control, and automated reporting. Aggregates data from multiple sources, processes 1M+ events daily, and provides actionable insights through intuitive charts and metrics.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Healthcare Appointment System</div>
+                        <div class="project-tech">Flutter · Firebase · Node.js · Twilio · Google Maps API</div>
+                        <p class="project-description">
+                            Mobile-first healthcare platform connecting patients with medical practitioners. Features include appointment scheduling, video consultations, prescription management, payment integration, and automated reminders. Serves 10,000+ users with 99.8% uptime and high satisfaction ratings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-section-title">Education & Certifications</h2>
+                
+                <div class="education-card">
+                    <div class="degree">Bachelor of Science in Computer Science</div>
+                    <div class="institution">University Name • 2017 - 2021</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">AWS Certified Developer - Associate</div>
+                    <div class="institution">Amazon Web Services • 2023</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">Professional Scrum Master (PSM I)</div>
+                    <div class="institution">Scrum.org • 2022</div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">MongoDB Certified Developer Associate</div>
+                    <div class="institution">MongoDB University • 2022</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
